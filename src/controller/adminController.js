@@ -7,8 +7,7 @@ module.exports.createAdmin = async function (req, res) {
         let data = req.body
         let { email, password } = data
 
-        // if (Object.keys(data).length == 0) return res.status(400
-        // ).send({ status: false, message: "Data not present" })
+        if (Object.keys(data).length == 0) return res.status(400).send({ status: false, message: "Data not present" })
 
         let checkEmail = await adminModel.findOne({ email: email })
 
