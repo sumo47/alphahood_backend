@@ -27,6 +27,7 @@ module.exports.createAdmin = async function (req, res) {
             }
         }
     } catch (err) {
+        console.log(err.message)
         return res.status(500).send({ status: false, message: err.message })
     }
 }
