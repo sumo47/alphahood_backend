@@ -10,15 +10,17 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(multer().any())
-mongoose.set('strictQuery', true);
+// mongoose.set('strictQuery', true);
 mongoose.connect("mongodb+srv://sumit:sumit@cluster0.8dflsuw.mongodb.net/alphahood", {
     useNewUrlParser: true
 })
-    .then(() => console.log("MongoDb is connected"))
-    .catch(err => console.log(err))
+    .then(() => {console.log("MongoDb is connected")})
+    .catch((err) => {console.log(err.message)})
 
 app.use('/', route)
 
-app.listen(process.env.PORT || 3006, function () {
-    console.log('Express app running on port ' + (process.env.PORT || 3006))
+port = process.env.PORT || 3006;
+
+app.listen(port, () => {
+    console.log("Express is running on port " + port)
 });
