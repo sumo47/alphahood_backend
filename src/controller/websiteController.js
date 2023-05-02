@@ -2,6 +2,8 @@ const websiteModel = require("../model/websiteModel")
 const { uploadFile } = require('../aws/aws')
 
 module.exports.UpdateWebsite = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
 
     let data = req.body
     let files = req.files
@@ -12,7 +14,7 @@ module.exports.UpdateWebsite = async (req, res) => {
 
     const { button, image } = data
 
-    if ( files && files.length != 0 && button) {
+    if (files && files.length != 0 && button) {
         let updatedData = await websiteModel.findOneAndUpdate({ _id: "6450d7b715a1432a75d58002" }, data, { new: true, upsert: true })
         return res.status(201).send({ status: true, message: updatedData })
     }
@@ -27,6 +29,8 @@ module.exports.UpdateWebsite = async (req, res) => {
 }
 
 module.exports.createButon = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     let data = req.body
     const { button } = data
     let saveData = await websiteModel.create(data)
@@ -34,7 +38,7 @@ module.exports.createButon = async (req, res) => {
 }
 
 module.exports.getButton = async (req, res) => {
-
+    res.setHeader('Access-Control-Allow-Origin', '*')
     let saveData = await websiteModel.findOne()
     res.send({ status: true, message: saveData })
 

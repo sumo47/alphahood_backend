@@ -2,6 +2,8 @@ const userModel = require("../model/userModel")
 
 
 module.exports.createUser = async (req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     try {
         let data = req.body
         
@@ -15,6 +17,8 @@ module.exports.createUser = async (req,res)=>{
 }
 
 module.exports.getUser = async (req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*')
+
     try {
         let usersDetails = await userModel.find()
         res.status(200).send({status:true, message:usersDetails})
