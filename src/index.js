@@ -14,12 +14,12 @@ app.use(multer().any())
 mongoose.connect("mongodb+srv://sumit:sumit@cluster0.8dflsuw.mongodb.net/alphahood", {
     useNewUrlParser: true
 })
-    .then(() => {console.log("MongoDb is connected")})
-    .catch((err) => {console.log(err.message)})
+    .then(() => { console.log("MongoDb is connected") })
+    .catch((err) => { console.log(err.message) })
 
 app.use('/', route)
 
-port = process.env.PORT || 3006;
+port = process.env.PORT;
 
 app.listen(port, () => {
     console.log("Express is running on port " + port)
