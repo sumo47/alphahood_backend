@@ -12,10 +12,10 @@ router.get("/test", (req, res) => {
 
 router.post("/admin", createAdmin)
 
-router.post("/user", createUser)
+router.post("/createUser", createUser)
 router.get("/getUser", getUser)
 router.put("/update", UpdateWebsite )
-router.post("/create", createButon)
+router.post("/createButton", createButon)
 router.get("/getButton", getButton)
 
 
